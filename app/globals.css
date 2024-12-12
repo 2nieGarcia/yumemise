@@ -14,8 +14,30 @@
   }
 }
 
+@font-face {
+  font-family: geret;
+  src: url(./fonts/Garet-Book.woff);
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: garet;
+
+  background-color: black;
+  transition-property: opacity, background, transform, filter;
+  transition-timing-function: ease-in-out;
+  transition-duration: 200ms;
+}
+
+.page-transition {
+  opacity: 0;
+  background: black;
+  transform: translatex(-5px);
+  filter: blur(12px);
+}
+
+.lol {
+  text-shadow: 0.5px 0.5px 0px black, -0.5px -0.5px 0px black,
+    0.5px -0.5px 0px black, 0.5px 0.5px 0px black, 0px 0px 20px #ffffff;
 }

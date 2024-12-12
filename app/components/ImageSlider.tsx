@@ -1,0 +1,103 @@
+import { ReactNode, useState } from "react"
+import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react"
+import "./image-slider.css"
+
+
+const images = [
+  { id: 0, url: './img/carousel/carousel1.jpg' , alt: "Carousel 1" },
+  { id: 1, url: './img/carousel/carousel1.jpg', alt: "Carousel 2" },
+  { id: 2, url: './img/carousel/carousel1.jpg', alt: "Carousel 3" },
+  { id: 3, url: './img/carousel/carousel1.jpg', alt: "Carousel 4" },
+  { id: 4, url: './img/carousel/carousel1.jpg', alt: "Carousel 5" },
+]
+
+export function ImageSlider({className}: {className?: string}) {
+  const [imageIndex, setImageIndex] = useState(0)
+
+  function showNextImage() {
+    setImageIndex(index => {
+      if (index === images.length - 1) return 0
+      return index + 1
+    })
+  }
+
+  function showPrevImage() {
+    setImageIndex(index => {
+      if (index === 0) return images.length - 1
+      return index - 1
+    })
+  }
+
+  return (
+    <section
+      aria-label="Image Slider"
+      
+      style={{ width: "100%", height: "100%", position: "relative" }}
+    >
+      <a href="#after-image-slider-controls" className="skip-link">
+        Skip Image Slider Controls
+      </a>
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          overflow: "hidden",
+        }}
+      >
+        {images.map(({id, url, alt }, index) => (
+          <img
+            key={id}
+            src={url}
+            alt={alt}
+            aria-hidden={imageIndex !== index}
+            className={`img-slider-img object-contain ${className}`}
+            style={{ translate: `${-100 * imageIndex}%` }}
+          />
+        ))}
+      </div>
+      <button
+        onClick={showPrevImage}
+        className="img-slider-btn"
+        style={{ left: 0 }}
+        aria-label="View Previous Image"
+      >
+        <ArrowBigLeft aria-hidden />
+      </button>
+      <button
+        onClick={showNextImage}
+        className="img-slider-btn"
+        style={{ right: 0 }}
+        aria-label="View Next Image"
+      >
+        <ArrowBigRight aria-hidden />
+      </button>
+      <div
+        style={{
+          position: "absolute",
+          bottom: ".5rem",
+          left: "50%",
+          translate: "-50%",
+          display: "flex",
+          gap: ".25rem",
+        }}
+      >
+        {images.map((_, index) => (
+          <button
+            key={index}
+            className="img-slider-dot-btn"
+            aria-label={`View Image ${index + 1}`}
+            onClick={() => setImageIndex(index)}
+          >
+            {index === imageIndex ? (
+              <CircleDot aria-hidden />
+            ) : (
+              <Circle aria-hidden />
+            )}
+          </button>
+        ))}
+      </div>
+      <div id="after-image-slider-controls" />
+    </section>
+  )
+}
