@@ -1,10 +1,9 @@
 'use client'
 import Link, {LinkProps } from "next/link";
-import router, { useRouter } from 'next/navigation'
-import React, { ReactNode } from "react";
+import { useRouter } from 'next/navigation'
 
 interface TransitionLinkProps extends LinkProps{
-    children: ReactNode;
+    children: React.ReactNode;
     href: string,
     className: string,
 }

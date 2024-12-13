@@ -1,10 +1,10 @@
 import { FaHome, FaSearch, FaStar } from "react-icons/fa";
 import Drop from "./drop";
-import { MdGroups2, MdModeNight, MdNightsStay } from "react-icons/md";
+import { MdGroups2, MdModeNight } from "react-icons/md";
 import { BiSupport } from "react-icons/bi";
 import { IoIosSettings } from "react-icons/io";
-import { CiSearch } from "react-icons/ci";
 import { TransitionLink } from "./transitionlink";
+import Image from "next/image";
 
 export default function Topnav({
     children,
@@ -15,6 +15,8 @@ export default function Topnav({
         {/* topnav */}
         <div className="flex align-middle py-3  bg-[#0b255f] items-center">
             <div className="font-bold flex flex-col w-[15%] justify-center text-center text-lg">
+                <p className="text-[#8260c4] text-xl lol">ユメミセ</p>
+                <p className="lol">YUMEMISE</p>
             </div>
 
             <div className="flex w-[20%] justify-center">

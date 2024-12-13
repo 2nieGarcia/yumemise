@@ -36,7 +36,7 @@ export default function Home() {
                       <h1 className="text-center">Personal Collection</h1>
                       <img src="/img/personalcollection.jpg" className=" w-[100%] object-cover h-[20vh] " alt="personalcollection" />
                     </div>
-                  </TransitionLink>
+                  </TransitionLink> 
 
                   <TransitionLink href="/community" className="w-[30%] hover:scale-95 hover:duration-75 ">
                     <div className="p-1">

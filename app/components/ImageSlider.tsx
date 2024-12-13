@@ -1,6 +1,7 @@
-import { ReactNode, useState } from "react"
+import { useState } from "react"
 import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react"
 import "./image-slider.css"
+import Image from "next/image"
 
 
 const images = [
@@ -46,6 +47,7 @@ export function ImageSlider({className}: {className?: string}) {
         }}
       >
         {images.map(({id, url, alt }, index) => (
+          
           <img
             key={id}
             src={url}

@@ -2,7 +2,6 @@
 import React from "react";
 import Topnav from "../../components/topnav";
 import { CiEdit } from "react-icons/ci";
-import { FaImage } from "react-icons/fa";
 import { PiImageSquareLight } from "react-icons/pi";
 
 export default function Home() {
